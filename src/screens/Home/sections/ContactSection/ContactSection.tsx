@@ -40,7 +40,7 @@ export const ContactSection = (): JSX.Element => {
         toast.success("Message sent successfully! I'll get back to you soon.", {
           duration: 5000,
           style: {
-            background: '#1a1a1a',
+            background: '#282c33',
             color: '#fff',
             border: '1px solid #c778dd',
           },
@@ -53,7 +53,7 @@ export const ContactSection = (): JSX.Element => {
       toast.error("Failed to send message. Please try again or contact me directly.", {
         duration: 5000,
         style: {
-          background: '#1a1a1a',
+          background: '#282c33',
           color: '#fff',
           border: '1px solid #ff6b6b',
         },
