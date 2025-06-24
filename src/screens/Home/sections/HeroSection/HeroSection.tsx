@@ -76,7 +76,7 @@ export const HeroSection = (): JSX.Element => {
           <img
             className="w-full h-full object-contain object-center"
             alt="Md Habibullah Mahmud - Software Engineer and Full-Stack Developer"
-            src="/image.png"
+            src="/image-1.png"
           />
         </div>
 
