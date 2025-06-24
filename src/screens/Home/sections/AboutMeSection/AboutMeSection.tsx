@@ -84,7 +84,7 @@ export const AboutMeSection = (): JSX.Element => {
                 onClick={handleReadMoreClick}
               >
                 <span className="[font-family:'Fira_Code',Helvetica] font-medium text-white text-base">
-                  Read more ->
+                  Read more -&gt;
                 </span>
               </Button>
             </CardContent>
