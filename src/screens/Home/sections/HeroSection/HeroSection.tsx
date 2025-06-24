@@ -76,7 +76,7 @@ export const HeroSection = (): JSX.Element => {
           <img
             className="w-full h-full object-contain object-center"
             alt="Md Habibullah Mahmud - Software Engineer and Full-Stack Developer"
-            src="/image-1.png"
+            src="/image.png"
           />
         </div>
 
@@ -89,8 +89,8 @@ export const HeroSection = (): JSX.Element => {
         <div className="absolute w-[60px] h-[60px] top-[200px] left-[50px] border border-app-primary opacity-50 z-0" />
         <div className="absolute w-[40px] h-[40px] top-[150px] left-[200px] border border-gray opacity-30 z-0" />
 
-        {/* Status indicator */}
-        <Card className="absolute bottom-[-20px] left-[31px] w-[350px] bg-app-background border-gray rounded-none z-30">
+        {/* Status indicator - positioned directly at the bottom of the image */}
+        <Card className="absolute bottom-0 left-[31px] w-[350px] bg-app-background border-gray rounded-none z-30">
           <CardContent className="flex items-center gap-2.5 p-3">
             <div className="relative w-4 h-4 bg-app-primary border border-solid border-app-primary" />
             <p className="[font-family:'Fira_Code',Helvetica] font-normal text-gray text-base">
