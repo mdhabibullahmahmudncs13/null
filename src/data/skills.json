@@ -40,5 +40,13 @@
         ["VS Code", "Postman"]
       ]
     }
+     {
+      "title": "Tool & Other",
+      "skills": [
+        ["Git", "Docker"],
+        ["AWS", "Vercel"],
+        ["VS Code", "Postman"]
+      ]
+    }
   ]
 }
