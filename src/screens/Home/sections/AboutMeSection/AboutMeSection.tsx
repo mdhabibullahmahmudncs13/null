@@ -85,7 +85,7 @@ export const AboutMeSection = (): JSX.Element => {
               <img
                 className="w-full h-auto object-cover"
                 alt="Developer profile"
-                src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400"
+                src="image.png"
               />
 
               {/* Top left dot pattern */}

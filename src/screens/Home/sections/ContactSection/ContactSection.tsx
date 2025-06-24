@@ -128,98 +128,103 @@ export const ContactSection = (): JSX.Element => {
                 Send me a message
               </h3>
 
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">
-                          Name
-                        </FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="Your name"
-                            className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
-                      </FormItem>
-                    )}
-                  />
+             <Form {...form}>
+  <form
+    action="https://formsubmit.co/mdhabibullahmahmudncs13@gmail.com"
+    method="POST"
+    className="space-y-4"
+  >
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_autoresponse" value="Thank you! I'll get back to you soon." />
 
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">
-                          Email
-                        </FormLabel>
-                        <FormControl>
-                          <Input
-                            type="email"
-                            placeholder="your.email@example.com"
-                            className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
-                      </FormItem>
-                    )}
-                  />
+    <FormField
+      control={form.control}
+      name="name"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Name</FormLabel>
+          <FormControl>
+            <Input
+              {...field}
+              name="name"
+              placeholder="Your name"
+              className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
+            />
+          </FormControl>
+          <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
+        </FormItem>
+      )}
+    />
 
-                  <FormField
-                    control={form.control}
-                    name="subject"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">
-                          Subject
-                        </FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="What's this about?"
-                            className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
-                      </FormItem>
-                    )}
-                  />
+    <FormField
+      control={form.control}
+      name="email"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Email</FormLabel>
+          <FormControl>
+            <Input
+              {...field}
+              name="email"
+              type="email"
+              placeholder="your.email@example.com"
+              className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
+            />
+          </FormControl>
+          <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
+        </FormItem>
+      )}
+    />
 
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">
-                          Message
-                        </FormLabel>
-                        <FormControl>
-                          <Textarea
-                            placeholder="Tell me about your project or question..."
-                            className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none min-h-[120px]"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
-                      </FormItem>
-                    )}
-                  />
+    <FormField
+      control={form.control}
+      name="subject"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Subject</FormLabel>
+          <FormControl>
+            <Input
+              {...field}
+              name="subject"
+              placeholder="What's this about?"
+              className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
+            />
+          </FormControl>
+          <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
+        </FormItem>
+      )}
+    />
 
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-transparent border border-app-primary text-white hover:bg-app-primary/10 [font-family:'Fira_Code',Helvetica] rounded-none"
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </Form>
+    <FormField
+      control={form.control}
+      name="message"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Message</FormLabel>
+          <FormControl>
+            <Textarea
+              {...field}
+              name="message"
+              placeholder="Tell me about your project or question..."
+              className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none min-h-[120px]"
+            />
+          </FormControl>
+          <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
+        </FormItem>
+      )}
+    />
+
+    <Button
+      type="submit"
+      className="w-full bg-transparent border border-app-primary text-white hover:bg-app-primary/10 [font-family:'Fira_Code',Helvetica] rounded-none"
+    >
+      Send Message
+    </Button>
+  </form>
+</Form>
+
+              
             </CardContent>
           </Card>
         </div>
