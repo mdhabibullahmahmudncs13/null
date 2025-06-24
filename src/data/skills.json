@@ -1,0 +1,44 @@
+{
+  "sectionTitle": "skills",
+  "categories": [
+    {
+      "title": "Languages",
+      "skills": [
+        ["JavaScript", "TypeScript"],
+        ["Python", "Java"],
+        ["C++", "SQL"]
+      ]
+    },
+    {
+      "title": "Frontend",
+      "skills": [
+        ["React", "Next.js"],
+        ["HTML", "CSS"],
+        ["Tailwind CSS", "Bootstrap"]
+      ]
+    },
+    {
+      "title": "Backend",
+      "skills": [
+        ["Node.js", "Express.js"],
+        ["Django", "Flask"],
+        ["REST APIs", "GraphQL"]
+      ]
+    },
+    {
+      "title": "Databases",
+      "skills": [
+        ["MongoDB", "PostgreSQL"],
+        ["MySQL", "Redis"]
+      ]
+    },
+    {
+      "title": "Tools & Others",
+      "skills": [
+        ["Git", "Docker"],
+        ["AWS", "Vercel"],
+        ["VS Code", "Postman"]
+      ]
+    }
+  ]
+}

@@ -6,50 +6,11 @@ import {
   CardTitle,
 } from "../../../../components/ui/card";
 import { Separator } from "../../../../components/ui/separator";
+import { useSkillsData, useImagesData } from "../../../../hooks/useJsonData";
 
 export const SkillsSection = (): JSX.Element => {
-  // Define skill categories data for mapping
-  const skillCategories = [
-    {
-      title: "Languages",
-      skills: [
-        ["JavaScript", "TypeScript"],
-        ["Python", "Java"],
-        ["C++", "SQL"],
-      ],
-    },
-    {
-      title: "Frontend",
-      skills: [
-        ["React", "Next.js"],
-        ["HTML", "CSS"],
-        ["Tailwind CSS", "Bootstrap"],
-      ],
-    },
-    {
-      title: "Backend",
-      skills: [
-        ["Node.js", "Express.js"],
-        ["Django", "Flask"],
-        ["REST APIs", "GraphQL"],
-      ],
-    },
-    {
-      title: "Databases",
-      skills: [
-        ["MongoDB", "PostgreSQL"],
-        ["MySQL", "Redis"],
-      ],
-    },
-    {
-      title: "Tools & Others",
-      skills: [
-        ["Git", "Docker"],
-        ["AWS", "Vercel"],
-        ["VS Code", "Postman"],
-      ],
-    },
-  ];
+  const skillsData = useSkillsData();
+  const imagesData = useImagesData();
 
   // Define dot grid patterns
   const createDotGrid = (rows = 5, cols = 5) => {
@@ -72,6 +33,10 @@ export const SkillsSection = (): JSX.Element => {
       ));
   };
 
+  if (!skillsData || !imagesData) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <section id="skills" className="w-full max-w-[1024px] mx-auto py-16">
       <div className="flex items-center gap-4 mb-8">
@@ -80,7 +45,7 @@ export const SkillsSection = (): JSX.Element => {
             #
           </span>
           <span className="font-medium text-[32px] [font-family:'Fira_Code',Helvetica] text-white">
-            skills
+            {skillsData.sectionTitle}
           </span>
         </div>
         <Separator className="flex-1" />
@@ -106,12 +71,12 @@ export const SkillsSection = (): JSX.Element => {
               <img
                 className="absolute w-14 h-[85px] top-0 left-[58px]"
                 alt="Union"
-                src="/union.svg"
+                src={imagesData.decorative.union}
               />
               <img
                 className="absolute w-[58px] h-[87px] top-[27px] left-0"
                 alt="Union"
-                src="/union-3.svg"
+                src={imagesData.decorative.union3}
               />
             </div>
           </div>
@@ -119,7 +84,7 @@ export const SkillsSection = (): JSX.Element => {
 
         {/* Right side skill cards */}
         <div className="w-full md:w-[584px] flex flex-wrap gap-4">
-          {skillCategories.map((category, index) => (
+          {skillsData.categories.map((category, index) => (
             <Card
               key={`category-${index}`}
               className="border border-solid border-[#abb2bf] rounded-none shadow-none bg-transparent"

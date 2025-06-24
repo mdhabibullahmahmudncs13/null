@@ -11,21 +11,10 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "../../../../components/ui/navigation-menu";
+import { useNavigationData } from "../../../../hooks/useJsonData";
 
 export const HeaderSection = (): JSX.Element => {
-  // Navigation items data with section links
-  const navItems = [
-    { text: "home", href: "#home", active: true },
-    { text: "works", href: "#projects", active: false },
-    { text: "about-me", href: "#about", active: false },
-    { text: "contacts", href: "#contacts", active: false },
-  ];
-
-  // Language options
-  const languages = [
-    { code: "EN", active: true },
-    { code: "BN", active: false },
-  ];
+  const navigationData = useNavigationData();
 
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
@@ -37,20 +26,26 @@ export const HeaderSection = (): JSX.Element => {
     }
   };
 
+  if (!navigationData) {
+    return <div>Loading...</div>;
+  }
+
+  const { logo, menuItems, languages } = navigationData;
+
   return (
     <header className="flex w-full items-end justify-between pt-8 pb-2 px-0 sticky top-0 bg-app-background z-10">
       {/* Logo */}
       <Link className="inline-flex items-center gap-2 relative" to="/home">
-        <div className="relative w-4 h-4 bg-[url(/union-1.svg)] bg-[100%_100%]" />
+        <div className={`relative w-4 h-4 bg-[url(${logo.icon})] bg-[100%_100%]`} />
         <div className="relative w-fit mt-[-1.00px] font-bold text-white text-base [font-family:'Fira_Code',Helvetica] tracking-[0] leading-[normal]">
-          Habibullah
+          {logo.text}
         </div>
       </Link>
 
       {/* Navigation */}
       <NavigationMenu className="max-w-none">
         <NavigationMenuList className="flex items-start gap-8">
-          {navItems.map((item, index) => (
+          {menuItems.map((item, index) => (
             <NavigationMenuItem key={index}>
               {item.active ? (
                 <button 

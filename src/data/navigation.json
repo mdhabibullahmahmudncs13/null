@@ -1,0 +1,38 @@
+{
+  "logo": {
+    "text": "Habibullah",
+    "icon": "/union-1.svg"
+  },
+  "menuItems": [
+    {
+      "text": "home",
+      "href": "#home",
+      "active": true
+    },
+    {
+      "text": "works",
+      "href": "#projects",
+      "active": false
+    },
+    {
+      "text": "about-me",
+      "href": "#about",
+      "active": false
+    },
+    {
+      "text": "contacts",
+      "href": "#contacts",
+      "active": false
+    }
+  ],
+  "languages": [
+    {
+      "code": "EN",
+      "active": true
+    },
+    {
+      "code": "BN",
+      "active": false
+    }
+  ]
+}

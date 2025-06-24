@@ -1,0 +1,18 @@
+{
+  "hero": {
+    "profileImage": "/image-1.png",
+    "alt": "Md Habibullah Mahmud - Software Engineer and Full-Stack Developer"
+  },
+  "about": {
+    "profileImage": "image.png",
+    "alt": "Developer profile"
+  },
+  "decorative": {
+    "union": "/union.svg",
+    "union1": "/union-1.svg",
+    "union2": "/union-2.svg",
+    "union3": "/union-3.svg",
+    "line14": "/line-14.svg",
+    "line15": "/line-15.svg"
+  }
+}

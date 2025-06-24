@@ -16,8 +16,10 @@ import {
   FormMessage,
 } from "../../../../components/ui/form";
 import { contactFormSchema, type ContactFormData, sendEmail } from "../../../../lib/email";
+import { usePersonalData } from "../../../../hooks/useJsonData";
 
 export const ContactSection = (): JSX.Element => {
+  const personalData = usePersonalData();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<ContactFormData>({
@@ -63,18 +65,9 @@ export const ContactSection = (): JSX.Element => {
     }
   };
 
-  const contactMethods = [
-    {
-      icon: "/email.svg",
-      text: "mdhabibullahmahmudncs13@gmail.com",
-      alt: "Email",
-    },
-    {
-      icon: "/discord.svg",
-      text: "habibullah_dev",
-      alt: "Discord",
-    },
-  ];
+  if (!personalData) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <section id="contacts" className="w-full max-w-[1023px] mx-auto py-8">
@@ -95,9 +88,7 @@ export const ContactSection = (): JSX.Element => {
       <div className="flex flex-col lg:flex-row justify-between gap-8">
         <div className="max-w-[505px]">
           <p className="[font-family:'Fira_Code',Helvetica] font-medium text-gray text-base mb-8">
-            I&apos;m interested in full-time opportunities and freelance projects. 
-            If you have any questions or would like to discuss potential collaborations, 
-            don&apos;t hesitate to contact me
+            {personalData.contact.description}
           </p>
 
           <Card className="border border-solid border-[#abb2bf] bg-transparent w-[280px]">
@@ -107,7 +98,7 @@ export const ContactSection = (): JSX.Element => {
               </h3>
 
               <div className="space-y-2">
-                {contactMethods.map((method, index) => (
+                {personalData.contact.methods.map((method, index) => (
                   <div key={index} className="flex items-center gap-[5px]">
                     <img className="w-8 h-8" alt={method.alt} src={method.icon} />
                     <span className="[font-family:'Fira_Code',Helvetica] font-normal text-gray text-sm break-all">
@@ -128,103 +119,101 @@ export const ContactSection = (): JSX.Element => {
                 Send me a message
               </h3>
 
-             <Form {...form}>
-  <form
-    action="https://formsubmit.co/mdhabibullahmahmudncs13@gmail.com"
-    method="POST"
-    className="space-y-4"
-  >
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_template" value="table" />
-    <input type="hidden" name="_autoresponse" value="Thank you! I'll get back to you soon." />
+              <Form {...form}>
+                <form
+                  action={`https://formsubmit.co/${personalData.email}`}
+                  method="POST"
+                  className="space-y-4"
+                >
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_autoresponse" value="Thank you! I'll get back to you soon." />
 
-    <FormField
-      control={form.control}
-      name="name"
-      render={({ field }) => (
-        <FormItem>
-          <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Name</FormLabel>
-          <FormControl>
-            <Input
-              {...field}
-              name="name"
-              placeholder="Your name"
-              className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
-            />
-          </FormControl>
-          <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
-        </FormItem>
-      )}
-    />
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Name</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            name="name"
+                            placeholder="Your name"
+                            className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
+                          />
+                        </FormControl>
+                        <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
+                      </FormItem>
+                    )}
+                  />
 
-    <FormField
-      control={form.control}
-      name="email"
-      render={({ field }) => (
-        <FormItem>
-          <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Email</FormLabel>
-          <FormControl>
-            <Input
-              {...field}
-              name="email"
-              type="email"
-              placeholder="your.email@example.com"
-              className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
-            />
-          </FormControl>
-          <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
-        </FormItem>
-      )}
-    />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Email</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            name="email"
+                            type="email"
+                            placeholder="your.email@example.com"
+                            className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
+                          />
+                        </FormControl>
+                        <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
+                      </FormItem>
+                    )}
+                  />
 
-    <FormField
-      control={form.control}
-      name="subject"
-      render={({ field }) => (
-        <FormItem>
-          <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Subject</FormLabel>
-          <FormControl>
-            <Input
-              {...field}
-              name="subject"
-              placeholder="What's this about?"
-              className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
-            />
-          </FormControl>
-          <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
-        </FormItem>
-      )}
-    />
+                  <FormField
+                    control={form.control}
+                    name="subject"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Subject</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            name="subject"
+                            placeholder="What's this about?"
+                            className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
+                          />
+                        </FormControl>
+                        <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
+                      </FormItem>
+                    )}
+                  />
 
-    <FormField
-      control={form.control}
-      name="message"
-      render={({ field }) => (
-        <FormItem>
-          <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Message</FormLabel>
-          <FormControl>
-            <Textarea
-              {...field}
-              name="message"
-              placeholder="Tell me about your project or question..."
-              className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none min-h-[120px]"
-            />
-          </FormControl>
-          <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
-        </FormItem>
-      )}
-    />
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Message</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            {...field}
+                            name="message"
+                            placeholder="Tell me about your project or question..."
+                            className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none min-h-[120px]"
+                          />
+                        </FormControl>
+                        <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
+                      </FormItem>
+                    )}
+                  />
 
-    <Button
-      type="submit"
-      className="w-full bg-transparent border border-app-primary text-white hover:bg-app-primary/10 [font-family:'Fira_Code',Helvetica] rounded-none"
-    >
-      Send Message
-    </Button>
-  </form>
-</Form>
-
-              
+                  <Button
+                    type="submit"
+                    className="w-full bg-transparent border border-app-primary text-white hover:bg-app-primary/10 [font-family:'Fira_Code',Helvetica] rounded-none"
+                  >
+                    Send Message
+                  </Button>
+                </form>
+              </Form>
             </CardContent>
           </Card>
         </div>
