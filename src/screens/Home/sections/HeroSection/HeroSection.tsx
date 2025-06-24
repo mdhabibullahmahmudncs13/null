@@ -74,9 +74,9 @@ export const HeroSection = (): JSX.Element => {
         {/* Main person image */}
         <div className="absolute w-[350px] h-[386px] right-0 top-0 z-10">
           <img
-            className="w-full h-full object-cover object-center rounded-lg"
+            className="w-full h-full object-contain object-center"
             alt="Md Habibullah Mahmud - Software Engineer and Full-Stack Developer"
-            src="/Adobe Express - file (11).png"
+            src="/Remove background project (3).png"
           />
         </div>
 
