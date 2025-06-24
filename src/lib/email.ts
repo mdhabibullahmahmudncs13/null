@@ -1,4 +1,5 @@
 import { z } from "zod";
+import emailjs from '@emailjs/browser';
 
 export const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -9,31 +10,53 @@ export const contactFormSchema = z.object({
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
 
+// Initialize EmailJS with your public key
+const initEmailJS = () => {
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  if (publicKey) {
+    emailjs.init(publicKey);
+  }
+};
+
 export async function sendEmail(data: ContactFormData): Promise<boolean> {
   try {
-    // Using EmailJS service for client-side email sending
-    // You'll need to set up EmailJS account and get your service ID, template ID, and public key
-    
-    const emailData = {
+    // Initialize EmailJS
+    initEmailJS();
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    // Check if all required environment variables are set
+    if (!serviceId || !templateId || !publicKey) {
+      console.warn('EmailJS not configured. Please set up your environment variables.');
+      // For development, we'll simulate success
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      return true;
+    }
+
+    // Prepare template parameters
+    const templateParams = {
       from_name: data.name,
       from_email: data.email,
       subject: data.subject,
       message: data.message,
       to_email: "mdhabibullahmahmudncs13@gmail.com",
+      reply_to: data.email,
     };
 
-    // For now, we'll simulate the email sending
-    // In production, you would integrate with EmailJS or another email service
-    console.log("Email data:", emailData);
-    
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // For demonstration, we'll always return true
-    // In real implementation, this would make an actual API call
-    return true;
+    // Send email using EmailJS
+    const response = await emailjs.send(
+      serviceId,
+      templateId,
+      templateParams,
+      publicKey
+    );
+
+    console.log('Email sent successfully:', response);
+    return response.status === 200;
   } catch (error) {
-    console.error("Failed to send email:", error);
+    console.error('Failed to send email:', error);
     return false;
   }
 }
