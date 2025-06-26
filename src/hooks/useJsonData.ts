@@ -135,3 +135,25 @@ export function useImagesData() {
     };
   }>('images');
 }
+
+export function useAchievementsData() {
+  return useJsonData<{
+    sectionTitle: string;
+    categories: Array<{
+      title: string;
+      icon: string;
+      items: Array<{
+        id: number;
+        title: string;
+        organization: string;
+        date: string;
+        description: string;
+        credentialId?: string;
+        verificationUrl?: string;
+        position?: string;
+        image: string;
+        skills: string[];
+      }>;
+    }>;
+  }>('achievements');
+}

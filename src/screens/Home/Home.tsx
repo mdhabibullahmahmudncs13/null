@@ -2,6 +2,7 @@ import { LinkedinIcon, GithubIcon, MailIcon } from "lucide-react";
 import React from "react";
 import { Separator } from "../../components/ui/separator";
 import { AboutMeSection } from "./sections/AboutMeSection";
+import { AchievementsSection } from "./sections/AchievementsSection";
 import { ContactSection } from "./sections/ContactSection";
 import { FooterSection } from "./sections/FooterSection";
 import { HeaderSection } from "./sections/HeaderSection";
@@ -61,6 +62,7 @@ export const Home = (): JSX.Element => {
         <QuoteSection />
         <ProjectsSection />
         <SkillsSection />
+        <AchievementsSection />
         <AboutMeSection />
         <ContactSection />
         <FooterSection />

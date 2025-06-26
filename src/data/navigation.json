@@ -15,6 +15,16 @@
       "active": false
     },
     {
+      "text": "skills",
+      "href": "#skills",
+      "active": false
+    },
+    {
+      "text": "achievements",
+      "href": "#achievements",
+      "active": false
+    },
+    {
       "text": "about-me",
       "href": "#about",
       "active": false
