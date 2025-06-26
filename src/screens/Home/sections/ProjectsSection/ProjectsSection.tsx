@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Badge } from "../../../../components/ui/badge";
 import { Button } from "../../../../components/ui/button";
 import { Card, CardContent, CardHeader } from "../../../../components/ui/card";
@@ -35,12 +36,14 @@ export const ProjectsSection = (): JSX.Element => {
           </div>
           <Separator className="flex-1" />
         </div>
-        <Button
-          variant="link"
-          className="font-['Fira_Code',Helvetica] font-medium text-white text-base"
-        >
-          {projectsData.viewAllText}
-        </Button>
+        <Link to="/projects">
+          <Button
+            variant="link"
+            className="font-['Fira_Code',Helvetica] font-medium text-white text-base hover:text-app-primary transition-colors"
+          >
+            {projectsData.viewAllText}
+          </Button>
+        </Link>
       </div>
 
       {/* Projects Grid */}
