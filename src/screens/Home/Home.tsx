@@ -2,6 +2,7 @@ import { LinkedinIcon, GithubIcon, MailIcon } from "lucide-react";
 import React from "react";
 import { Separator } from "../../components/ui/separator";
 import { AboutMeSection } from "./sections/AboutMeSection";
+import { AchievementsSection } from "./sections/AchievementsSection";
 import { ContactSection } from "./sections/ContactSection";
 import { FooterSection } from "./sections/FooterSection";
 import { HeaderSection } from "./sections/HeaderSection";
@@ -9,10 +10,30 @@ import { HeroSection } from "./sections/HeroSection";
 import { ProjectsSection } from "./sections/ProjectsSection";
 import { QuoteSection } from "./sections/QuoteSection";
 import { SkillsSection } from "./sections/SkillsSection";
+import { usePersonalData } from "../../hooks/useJsonData";
 
 export const Home = (): JSX.Element => {
+  const personalData = usePersonalData();
+
   // Create dot grid pattern data for reusability
   const dotGridPattern = Array(5).fill(Array(5).fill(0));
+
+  const getIcon = (iconName: string) => {
+    switch (iconName.toLowerCase()) {
+      case 'github':
+        return <GithubIcon className="w-8 h-8 text-gray hover:text-white transition-colors" />;
+      case 'linkedin':
+        return <LinkedinIcon className="w-8 h-8 text-gray hover:text-white transition-colors" />;
+      case 'mail':
+        return <MailIcon className="w-8 h-8 text-gray hover:text-white transition-colors" />;
+      default:
+        return <GithubIcon className="w-8 h-8 text-gray hover:text-white transition-colors" />;
+    }
+  };
+
+  if (!personalData) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="bg-app-background flex flex-col items-center w-full min-h-screen">
@@ -21,28 +42,17 @@ export const Home = (): JSX.Element => {
         <div className="flex flex-col items-center gap-2 fixed top-0 left-[17px] bg-app-background z-10">
           <Separator className="h-[191px] w-px bg-gray" />
           <div className="flex flex-col items-center gap-2">
-            <a 
-              href="https://github.com/habibullah-dev" 
-              aria-label="GitHub"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GithubIcon className="w-8 h-8 text-gray hover:text-white transition-colors" />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/md-habibullah-mahmud-3820382a9" 
-              aria-label="LinkedIn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedinIcon className="w-8 h-8 text-gray hover:text-white transition-colors" />
-            </a>
-            <a 
-              href="mailto:mdhabibullahmahmudncs13@gmail.com" 
-              aria-label="Email"
-            >
-              <MailIcon className="w-8 h-8 text-gray hover:text-white transition-colors" />
-            </a>
+            {personalData.socialLinks.map((link, index) => (
+              <a 
+                key={index}
+                href={link.url} 
+                aria-label={link.name}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {getIcon(link.icon)}
+              </a>
+            ))}
           </div>
         </div>
 
@@ -52,6 +62,7 @@ export const Home = (): JSX.Element => {
         <QuoteSection />
         <ProjectsSection />
         <SkillsSection />
+        <AchievementsSection />
         <AboutMeSection />
         <ContactSection />
         <FooterSection />

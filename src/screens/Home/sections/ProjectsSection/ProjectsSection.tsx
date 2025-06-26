@@ -1,53 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Badge } from "../../../../components/ui/badge";
 import { Button } from "../../../../components/ui/button";
 import { Card, CardContent, CardHeader } from "../../../../components/ui/card";
 import { Separator } from "../../../../components/ui/separator";
-
-// Project data for mapping
-const projects = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with React and Node.js",
-    image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=400",
-    technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
-    actions: [
-      { label: "Live <~>", primary: true },
-      { label: "Code >=", primary: false },
-    ],
-  },
-  {
-    id: 2,
-    title: "Task Management App",
-    description: "Collaborative task management with real-time updates",
-    image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-      "Socket.io",
-      "Tailwind CSS",
-    ],
-    actions: [
-      { label: "Live <~>", primary: true },
-      { label: "Code >=", primary: false },
-    ],
-  },
-  {
-    id: 3,
-    title: "Weather Dashboard",
-    description: "Real-time weather data visualization",
-    image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=400",
-    technologies: ["React", "Chart.js", "Weather API", "CSS"],
-    actions: [
-      { label: "Live <~>", primary: true },
-      { label: "Code >=", primary: false },
-    ],
-  },
-];
+import { useProjectsData } from "../../../../hooks/useJsonData";
 
 export const ProjectsSection = (): JSX.Element => {
+  const projectsData = useProjectsData();
+
+  const handleActionClick = (project: any, actionType: string) => {
+    if (actionType === 'live' && project.liveUrl) {
+      window.open(project.liveUrl, '_blank');
+    } else if (actionType === 'code' && project.codeUrl) {
+      window.open(project.codeUrl, '_blank');
+    }
+  };
+
+  if (!projectsData) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <section id="projects" className="w-full max-w-[1027px] mx-auto py-8">
       {/* Section Header */}
@@ -58,22 +31,24 @@ export const ProjectsSection = (): JSX.Element => {
               #
             </span>
             <span className="font-medium text-[32px] text-white font-['Fira_Code',Helvetica]">
-              projects
+              {projectsData.sectionTitle}
             </span>
           </div>
           <Separator className="flex-1" />
         </div>
-        <Button
-          variant="link"
-          className="font-['Fira_Code',Helvetica] font-medium text-white text-base"
-        >
-          View all ~~&gt;
-        </Button>
+        <Link to="/projects">
+          <Button
+            variant="link"
+            className="font-['Fira_Code',Helvetica] font-medium text-white text-base hover:text-app-primary transition-colors"
+          >
+            {projectsData.viewAllText}
+          </Button>
+        </Link>
       </div>
 
       {/* Projects Grid */}
       <div className="flex flex-wrap gap-4">
-        {projects.map((project) => (
+        {projectsData.projects.map((project) => (
           <Card
             key={project.id}
             className="flex flex-col w-[330.58px] border border-solid border-[#abb2bf] rounded-none bg-transparent"
@@ -113,6 +88,7 @@ export const ProjectsSection = (): JSX.Element => {
                   <Button
                     key={`${project.id}-action-${index}`}
                     variant="outline"
+                    onClick={() => handleActionClick(project, action.type)}
                     className={`rounded-none px-4 py-2 h-auto font-['Fira_Code',Helvetica] font-medium text-base
                       ${
                         action.primary

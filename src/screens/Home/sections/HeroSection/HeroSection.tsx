@@ -1,8 +1,12 @@
 import React from "react";
 import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
+import { usePersonalData, useImagesData } from "../../../../hooks/useJsonData";
 
 export const HeroSection = (): JSX.Element => {
+  const personalData = usePersonalData();
+  const imagesData = useImagesData();
+
   // Create a 5x5 grid of dots for the decorative element
   const dotGrid = Array(5)
     .fill(null)
@@ -32,21 +36,25 @@ export const HeroSection = (): JSX.Element => {
     }
   };
 
+  if (!personalData || !imagesData) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <section id="home" className="flex justify-between items-center w-full max-w-[1024px] mx-auto py-16 min-h-[500px]">
       {/* Left content - Text and CTA */}
       <div className="flex flex-col gap-8 max-w-[541px]">
         <h1 className="text-[32px] font-normal [font-family:'Fira_Code',Helvetica] text-white leading-normal">
-          <span className="font-semibold text-white">Md Habibullah Mahmud is a </span>
-          <span className="font-semibold text-app-primary">Software Engineer</span>
+          <span className="font-semibold text-white">{personalData.name} is a </span>
+          <span className="font-semibold text-app-primary">{personalData.title}</span>
           <span className="font-semibold text-white"> and </span>
           <span className="font-semibold text-app-primary">
-            Full-Stack Developer
+            {personalData.subtitle}
           </span>
         </h1>
 
         <p className="[font-family:'Fira_Code',Helvetica] font-normal text-gray text-base leading-[25px] max-w-[463px]">
-          He crafts scalable web applications and mobile solutions with modern technologies
+          {personalData.description}
         </p>
 
         <Button
@@ -75,8 +83,8 @@ export const HeroSection = (): JSX.Element => {
         <div className="absolute w-[350px] h-[386px] right-0 top-0 z-10">
           <img
             className="w-full h-full object-contain object-center"
-            alt="Md Habibullah Mahmud - Software Engineer and Full-Stack Developer"
-            src="/image-1.png"
+            alt={imagesData.hero.alt}
+            src={imagesData.hero.profileImage}
           />
         </div>
 
@@ -97,7 +105,7 @@ export const HeroSection = (): JSX.Element => {
               <span className="font-medium text-gray">
                 Currently working on{" "}
               </span>
-              <span className="font-semibold text-white">Portfolio</span>
+              <span className="font-semibold text-white">{personalData.currentWork}</span>
             </p>
           </CardContent>
         </Card>

@@ -1,0 +1,69 @@
+{
+  "sectionTitle": "projects",
+  "viewAllText": "View all ~~>",
+  "projects": [
+    {
+      "id": 1,
+      "title": "E-Commerce Platform",
+      "description": "Full-stack e-commerce solution with React and Node.js",
+      "image": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "technologies": ["React", "Node.js", "MongoDB", "Express", "Stripe"],
+      "liveUrl": "#",
+      "codeUrl": "#",
+      "actions": [
+        {
+          "label": "Live <~>",
+          "primary": true,
+          "type": "live"
+        },
+        {
+          "label": "Code >=",
+          "primary": false,
+          "type": "code"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Task Management App",
+      "description": "Collaborative task management with real-time updates",
+      "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Socket.io", "Tailwind CSS"],
+      "liveUrl": "#",
+      "codeUrl": "#",
+      "actions": [
+        {
+          "label": "Live <~>",
+          "primary": true,
+          "type": "live"
+        },
+        {
+          "label": "Code >=",
+          "primary": false,
+          "type": "code"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Weather Dashboard",
+      "description": "Real-time weather data visualization",
+      "image": "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "technologies": ["React", "Chart.js", "Weather API", "CSS"],
+      "liveUrl": "#",
+      "codeUrl": "#",
+      "actions": [
+        {
+          "label": "Live <~>",
+          "primary": true,
+          "type": "live"
+        },
+        {
+          "label": "Code >=",
+          "primary": false,
+          "type": "code"
+        }
+      ]
+    }
+  ]
+}

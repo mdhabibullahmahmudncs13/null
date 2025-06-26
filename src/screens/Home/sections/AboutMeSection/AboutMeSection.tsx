@@ -2,8 +2,12 @@ import React from "react";
 import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
 import { Separator } from "../../../../components/ui/separator";
+import { usePersonalData, useImagesData } from "../../../../hooks/useJsonData";
 
 export const AboutMeSection = (): JSX.Element => {
+  const personalData = usePersonalData();
+  const imagesData = useImagesData();
+
   // Dot pattern data for reusability
   const createDotPattern = (rows: number, cols: number) => {
     return Array(rows)
@@ -35,6 +39,10 @@ export const AboutMeSection = (): JSX.Element => {
     }
   };
 
+  if (!personalData || !imagesData) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <section id="about" className="flex flex-col w-full max-w-[1025px] mx-auto py-16">
       <div className="flex w-full items-center gap-4 mb-16">
@@ -54,16 +62,20 @@ export const AboutMeSection = (): JSX.Element => {
           <Card className="border-0 bg-transparent">
             <CardContent className="p-0">
               <p className="[font-family:'Fira_Code',Helvetica] font-normal text-gray text-base leading-[26px] mb-8">
-                Hello, I&apos;m Md Habibullah Mahmud!
+                {personalData.bio.greeting}
                 <br />
                 <br />
-                I&apos;m a passionate Software Engineer and Full-Stack Developer with expertise in modern web technologies. I specialize in building scalable applications using React, Node.js, and various databases.
-                <br />
-                <br />
-                With a strong foundation in both frontend and backend development, I enjoy creating efficient, user-friendly solutions that solve real-world problems. I&apos;m always eager to learn new technologies and take on challenging projects.
-                <br />
-                <br />
-                Currently pursuing my degree while working on various projects that showcase my skills in full-stack development, from e-commerce platforms to real-time applications.
+                {personalData.bio.paragraphs.map((paragraph, index) => (
+                  <React.Fragment key={index}>
+                    {paragraph}
+                    {index < personalData.bio.paragraphs.length - 1 && (
+                      <>
+                        <br />
+                        <br />
+                      </>
+                    )}
+                  </React.Fragment>
+                ))}
               </p>
 
               <Button
@@ -84,8 +96,8 @@ export const AboutMeSection = (): JSX.Element => {
             <CardContent className="p-0 relative">
               <img
                 className="w-full h-auto object-cover"
-                alt="Developer profile"
-                src="image.png"
+                alt={imagesData.about.alt}
+                src={imagesData.about.profileImage}
               />
 
               {/* Top left dot pattern */}

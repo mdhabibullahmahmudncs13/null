@@ -1,0 +1,70 @@
+{
+  "name": "Md Habibullah Mahmud",
+  "shortName": "Habibullah",
+  "title": "Software Engineer",
+  "subtitle": "Full-Stack Developer",
+  "description": "He crafts scalable web applications and mobile solutions with modern technologies",
+  "email": "mdhabibullahmahmudncs13@gmail.com",
+  "currentWork": "Portfolio",
+  "bio": {
+    "greeting": "Hello, I'm Md Habibullah Mahmud!",
+    "paragraphs": [
+      "I'm a passionate Software Engineer and Full-Stack Developer with expertise in modern web technologies. I specialize in building scalable applications using React, Node.js, and various databases.",
+      "With a strong foundation in both frontend and backend development, I enjoy creating efficient, user-friendly solutions that solve real-world problems. I'm always eager to learn new technologies and take on challenging projects.",
+      "Currently pursuing my degree while working on various projects that showcase my skills in full-stack development, from e-commerce platforms to real-time applications."
+    ]
+  },
+  "contact": {
+    "description": "I'm interested in full-time opportunities and freelance projects. If you have any questions or would like to discuss potential collaborations, don't hesitate to contact me",
+    "methods": [
+      {
+        "icon": "/email.svg",
+        "text": "mdhabibullahmahmudncs13@gmail.com",
+        "alt": "Email"
+      },
+      {
+        "icon": "/discord.svg",
+        "text": "habibullah_dev",
+        "alt": "Discord"
+      }
+    ]
+  },
+  "socialLinks": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/habibullah-dev",
+      "icon": "github"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/md-habibullah-mahmud-3820382a9",
+      "icon": "linkedin"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:mdhabibullahmahmudncs13@gmail.com",
+      "icon": "mail"
+    }
+  ],
+  "footer": {
+    "description": "Software Engineer and Full-Stack Developer",
+    "copyright": "© Copyright 2024. Made by Md Habibullah Mahmud",
+    "socialLinks": [
+      {
+        "name": "Github",
+        "url": "https://github.com/habibullah-dev",
+        "icon": "github"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/md-habibullah-mahmud-3820382a9",
+        "icon": "linkedin"
+      },
+      {
+        "name": "Figma",
+        "url": "#",
+        "icon": "figma"
+      }
+    ]
+  }
+}
