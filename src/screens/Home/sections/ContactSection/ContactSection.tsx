@@ -42,9 +42,10 @@ export const ContactSection = (): JSX.Element => {
         toast.success("Message sent successfully! I'll get back to you soon.", {
           duration: 5000,
           style: {
-            background: '#282c33',
+            background: 'rgba(15, 23, 42, 0.9)',
             color: '#fff',
-            border: '1px solid #c778dd',
+            border: '1px solid rgba(0, 255, 157, 0.5)',
+            boxShadow: '0 0 20px rgba(0, 255, 157, 0.3)',
           },
         });
         form.reset();
@@ -55,9 +56,10 @@ export const ContactSection = (): JSX.Element => {
       toast.error("Failed to send message. Please try again or contact me directly.", {
         duration: 5000,
         style: {
-          background: '#282c33',
+          background: 'rgba(15, 23, 42, 0.9)',
           color: '#fff',
           border: '1px solid #ff6b6b',
+          boxShadow: '0 0 20px rgba(255, 107, 107, 0.3)',
         },
       });
     } finally {
@@ -70,38 +72,43 @@ export const ContactSection = (): JSX.Element => {
   }
 
   return (
-    <section id="contacts" className="w-full max-w-[1023px] mx-auto py-8">
+    <section id="contacts" className="w-full max-w-[1023px] mx-auto py-8 relative">
       <Toaster position="top-right" />
       
-      <div className="flex items-center gap-4 mb-8">
+      {/* Cyber grid background */}
+      <div className="absolute inset-0 cyber-grid opacity-10 pointer-events-none" />
+      
+      <div className="flex items-center gap-4 mb-6 sm:mb-8 relative z-10">
         <div className="inline-flex items-start">
-          <span className="font-medium text-[32px] [font-family:'Fira_Code',Helvetica] text-app-primary tracking-[0]">
+          <span className="font-medium text-2xl sm:text-[32px] [font-family:'Fira_Code',Helvetica] text-app-primary tracking-[0] cyber-text-glow">
             #
           </span>
-          <span className="font-medium text-[32px] [font-family:'Fira_Code',Helvetica] text-white tracking-[0]">
+          <span className="font-medium text-2xl sm:text-[32px] [font-family:'Fira_Code',Helvetica] text-white tracking-[0]">
             contacts
           </span>
         </div>
-        <Separator className="flex-1" />
+        <Separator className="flex-1 bg-app-primary/30" />
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-between gap-8">
-        <div className="max-w-[505px]">
-          <p className="[font-family:'Fira_Code',Helvetica] font-medium text-gray text-base mb-8">
+      <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-8 relative z-10">
+        <div className="w-full lg:max-w-[505px]">
+          <p className="[font-family:'Fira_Code',Helvetica] font-medium text-gray text-sm sm:text-base mb-6 sm:mb-8">
             {personalData.contact.description}
           </p>
 
-          <Card className="border border-solid border-[#abb2bf] bg-transparent w-[280px]">
-            <CardContent className="p-4 space-y-4">
-              <h3 className="[font-family:'Fira_Code',Helvetica] font-semibold text-white text-base mt-[-1.00px]">
+          <Card className="border-2 border-app-primary/50 bg-app-background/50 backdrop-blur-sm w-full sm:w-[280px] cyber-glow hover:border-app-primary transition-all duration-300">
+            <CardContent className="p-3 sm:p-4 space-y-3 sm:space-y-4">
+              <h3 className="[font-family:'Fira_Code',Helvetica] font-semibold text-app-primary text-sm sm:text-base mt-[-1.00px] cyber-text-glow">
                 Message me here
               </h3>
 
               <div className="space-y-2">
                 {personalData.contact.methods.map((method, index) => (
-                  <div key={index} className="flex items-center gap-[5px]">
-                    <img className="w-8 h-8" alt={method.alt} src={method.icon} />
-                    <span className="[font-family:'Fira_Code',Helvetica] font-normal text-gray text-sm break-all">
+                  <div key={index} className="flex items-center gap-[5px] group">
+                    <img className="w-6 h-6 sm:w-8 sm:h-8 filter brightness-0 invert group-hover:filter-none transition-all duration-300" 
+                         style={{ filter: 'brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(3207%) hue-rotate(130deg) brightness(101%) contrast(101%)' }}
+                         alt={method.alt} src={method.icon} />
+                    <span className="[font-family:'Fira_Code',Helvetica] font-normal text-gray text-xs sm:text-sm break-all group-hover:text-app-secondary transition-colors duration-300">
                       {method.text}
                     </span>
                   </div>
@@ -112,10 +119,10 @@ export const ContactSection = (): JSX.Element => {
         </div>
 
         {/* Contact Form */}
-        <div className="flex-1 max-w-[500px]">
-          <Card className="border border-solid border-[#abb2bf] bg-transparent">
-            <CardContent className="p-6">
-              <h3 className="[font-family:'Fira_Code',Helvetica] font-semibold text-white text-xl mb-6">
+        <div className="flex-1 w-full lg:max-w-[500px]">
+          <Card className="border-2 border-app-primary/50 bg-app-background/50 backdrop-blur-sm cyber-glow hover:border-app-primary transition-all duration-300">
+            <CardContent className="p-4 sm:p-6">
+              <h3 className="[font-family:'Fira_Code',Helvetica] font-semibold text-app-primary text-lg sm:text-xl mb-4 sm:mb-6 cyber-text-glow">
                 Send me a message
               </h3>
 
@@ -123,7 +130,7 @@ export const ContactSection = (): JSX.Element => {
                 <form
                   action={`https://formsubmit.co/${personalData.email}`}
                   method="POST"
-                  className="space-y-4"
+                  className="space-y-3 sm:space-y-4"
                 >
                   <input type="hidden" name="_captcha" value="false" />
                   <input type="hidden" name="_template" value="table" />
@@ -134,16 +141,16 @@ export const ContactSection = (): JSX.Element => {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Name</FormLabel>
+                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-app-secondary text-sm sm:text-base">Name</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
                             name="name"
                             placeholder="Your name"
-                            className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
+                            className="bg-transparent border-2 border-app-primary/30 text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary focus:cyber-glow rounded-none transition-all duration-300 text-sm sm:text-base"
                           />
                         </FormControl>
-                        <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
+                        <FormMessage className="[font-family:'Fira_Code',Helvetica] text-xs sm:text-sm" />
                       </FormItem>
                     )}
                   />
@@ -153,17 +160,17 @@ export const ContactSection = (): JSX.Element => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Email</FormLabel>
+                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-app-secondary text-sm sm:text-base">Email</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
                             name="email"
                             type="email"
                             placeholder="your.email@example.com"
-                            className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
+                            className="bg-transparent border-2 border-app-primary/30 text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary focus:cyber-glow rounded-none transition-all duration-300 text-sm sm:text-base"
                           />
                         </FormControl>
-                        <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
+                        <FormMessage className="[font-family:'Fira_Code',Helvetica] text-xs sm:text-sm" />
                       </FormItem>
                     )}
                   />
@@ -173,16 +180,16 @@ export const ContactSection = (): JSX.Element => {
                     name="subject"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Subject</FormLabel>
+                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-app-secondary text-sm sm:text-base">Subject</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
                             name="subject"
                             placeholder="What's this about?"
-                            className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none"
+                            className="bg-transparent border-2 border-app-primary/30 text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary focus:cyber-glow rounded-none transition-all duration-300 text-sm sm:text-base"
                           />
                         </FormControl>
-                        <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
+                        <FormMessage className="[font-family:'Fira_Code',Helvetica] text-xs sm:text-sm" />
                       </FormItem>
                     )}
                   />
@@ -192,25 +199,26 @@ export const ContactSection = (): JSX.Element => {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-gray">Message</FormLabel>
+                        <FormLabel className="[font-family:'Fira_Code',Helvetica] text-app-secondary text-sm sm:text-base">Message</FormLabel>
                         <FormControl>
                           <Textarea
                             {...field}
                             name="message"
                             placeholder="Tell me about your project or question..."
-                            className="bg-transparent border-gray text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary rounded-none min-h-[120px]"
+                            className="bg-transparent border-2 border-app-primary/30 text-white [font-family:'Fira_Code',Helvetica] focus:border-app-primary focus:cyber-glow rounded-none min-h-[100px] sm:min-h-[120px] transition-all duration-300 text-sm sm:text-base"
                           />
                         </FormControl>
-                        <FormMessage className="[font-family:'Fira_Code',Helvetica]" />
+                        <FormMessage className="[font-family:'Fira_Code',Helvetica] text-xs sm:text-sm" />
                       </FormItem>
                     )}
                   />
 
                   <Button
                     type="submit"
-                    className="w-full bg-transparent border border-app-primary text-white hover:bg-app-primary/10 [font-family:'Fira_Code',Helvetica] rounded-none"
+                    disabled={isSubmitting}
+                    className="w-full bg-transparent border-2 border-app-primary text-app-primary hover:bg-app-primary/20 [font-family:'Fira_Code',Helvetica] rounded-none cyber-glow cyber-scan-line transition-all duration-300 text-sm sm:text-base py-2 sm:py-3"
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </Form>

@@ -8,10 +8,14 @@
 }
 
 :root {
-  --app-background: rgba(40, 44, 51, 1);
-  --app-primary: rgba(199, 120, 221, 1);
-  --gray: rgba(171, 178, 191, 1);
+  --app-background: rgba(15, 23, 42, 1);
+  --app-primary: rgba(0, 255, 157, 1);
+  --app-secondary: rgba(34, 211, 238, 1);
+  --app-accent: rgba(168, 85, 247, 1);
+  --gray: rgba(148, 163, 184, 1);
   --white: rgba(255, 255, 255, 1);
+  --cyber-glow: rgba(0, 255, 157, 0.3);
+  --cyber-border: rgba(0, 255, 157, 0.5);
 }
 
 @tailwind base;
@@ -88,6 +92,26 @@
   html {
     scroll-behavior: smooth;
   }
+
+  body {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(30, 41, 59, 1) 100%);
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(0, 255, 157, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
 }
 
 @layer base {
@@ -98,5 +122,65 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Cyber theme utilities */
+@layer utilities {
+  .cyber-glow {
+    box-shadow: 0 0 20px var(--cyber-glow);
+  }
+  
+  .cyber-border {
+    border-color: var(--cyber-border);
+  }
+  
+  .cyber-text-glow {
+    text-shadow: 0 0 10px var(--app-primary);
+  }
+  
+  .cyber-pulse {
+    animation: cyber-pulse 2s ease-in-out infinite alternate;
+  }
+  
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(0, 255, 157, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 157, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .cyber-scan-line {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cyber-scan-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.2), transparent);
+    animation: scan-line 3s linear infinite;
+  }
+}
+
+@keyframes cyber-pulse {
+  0% {
+    box-shadow: 0 0 5px var(--cyber-glow);
+  }
+  100% {
+    box-shadow: 0 0 20px var(--cyber-glow), 0 0 30px var(--cyber-glow);
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
   }
 }

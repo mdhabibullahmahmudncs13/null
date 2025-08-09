@@ -9,6 +9,10 @@ module.exports = {
       colors: {
         "app-background": "var(--app-background)",
         "app-primary": "var(--app-primary)",
+        "app-secondary": "var(--app-secondary)",
+        "app-accent": "var(--app-accent)",
+        "cyber-glow": "var(--cyber-glow)",
+        "cyber-border": "var(--cyber-border)",
         gray: "var(--gray)",
         white: "var(--white)",
         border: "hsl(var(--border))",
@@ -70,10 +74,24 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "cyber-pulse": {
+          "0%": { 
+            boxShadow: "0 0 5px var(--cyber-glow)" 
+          },
+          "100%": { 
+            boxShadow: "0 0 20px var(--cyber-glow), 0 0 30px var(--cyber-glow)" 
+          },
+        },
+        "scan-line": {
+          "0%": { left: "-100%" },
+          "100%": { left: "100%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "cyber-pulse": "cyber-pulse 2s ease-in-out infinite alternate",
+        "scan-line": "scan-line 3s linear infinite",
       },
     },
     container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },

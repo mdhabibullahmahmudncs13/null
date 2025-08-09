@@ -1,11 +1,12 @@
 {
   "name": "Md Habibullah Mahmud",
   "shortName": "Habibullah",
-  "title": "Software Engineer",
+  "title": "Versatile Tech Expert",
   "subtitle": "Full-Stack Developer",
-  "description": "He crafts scalable web applications and mobile solutions with modern technologies",
+  "description": "I craft scalable web applications and mobile solutions with modern technologies",
   "email": "mdhabibullahmahmudncs13@gmail.com",
-  "currentWork": "Portfolio",
+  "currentWork": "Aurora LMS",
+
   "bio": {
     "greeting": "Hello, I'm Md Habibullah Mahmud!",
     "paragraphs": [
@@ -24,7 +25,7 @@
       },
       {
         "icon": "/discord.svg",
-        "text": "habibullah_dev",
+        "text": "m.h.mahmud.dev",
         "alt": "Discord"
       }
     ]

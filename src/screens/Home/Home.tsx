@@ -21,13 +21,13 @@ export const Home = (): JSX.Element => {
   const getIcon = (iconName: string) => {
     switch (iconName.toLowerCase()) {
       case 'github':
-        return <GithubIcon className="w-8 h-8 text-gray hover:text-white transition-colors" />;
+        return <GithubIcon className="w-6 h-6 md:w-8 md:h-8 text-gray hover:text-app-primary transition-colors" />;
       case 'linkedin':
-        return <LinkedinIcon className="w-8 h-8 text-gray hover:text-white transition-colors" />;
+        return <LinkedinIcon className="w-6 h-6 md:w-8 md:h-8 text-gray hover:text-app-primary transition-colors" />;
       case 'mail':
-        return <MailIcon className="w-8 h-8 text-gray hover:text-white transition-colors" />;
+        return <MailIcon className="w-6 h-6 md:w-8 md:h-8 text-gray hover:text-app-primary transition-colors" />;
       default:
-        return <GithubIcon className="w-8 h-8 text-gray hover:text-white transition-colors" />;
+        return <GithubIcon className="w-6 h-6 md:w-8 md:h-8 text-gray hover:text-app-primary transition-colors" />;
     }
   };
 
@@ -37,9 +37,9 @@ export const Home = (): JSX.Element => {
 
   return (
     <div className="bg-app-background flex flex-col items-center w-full min-h-screen">
-      <div className="relative w-full max-w-[1366px] overflow-hidden">
-        {/* Fixed social sidebar */}
-        <div className="flex flex-col items-center gap-2 fixed top-0 left-[17px] bg-app-background z-10">
+      <div className="relative w-full max-w-[1366px] overflow-hidden px-4 sm:px-6 lg:px-8">
+        {/* Fixed social sidebar - Hidden on mobile, visible on desktop */}
+        <div className="hidden lg:flex flex-col items-center gap-2 fixed top-0 left-[17px] bg-app-background z-10">
           <Separator className="h-[191px] w-px bg-gray" />
           <div className="flex flex-col items-center gap-2">
             {personalData.socialLinks.map((link, index) => (
@@ -67,20 +67,20 @@ export const Home = (): JSX.Element => {
         <ContactSection />
         <FooterSection />
 
-        {/* Decorative elements - Fixed positioning and visibility */}
-        <div className="absolute w-[155px] h-[155px] top-[1453px] left-0 border border-solid border-gray opacity-30 pointer-events-none" />
-        <div className="absolute w-[155px] h-[155px] top-[800px] right-0 border border-solid border-gray opacity-30 pointer-events-none" />
-        <div className="absolute w-[91px] h-[91px] top-0 right-0 border border-solid border-gray opacity-30 pointer-events-none" />
+        {/* Decorative elements - Responsive positioning */}
+        <div className="hidden md:block absolute w-[100px] h-[100px] lg:w-[155px] lg:h-[155px] top-[1453px] left-0 border border-solid border-gray opacity-30 pointer-events-none" />
+        <div className="hidden md:block absolute w-[100px] h-[100px] lg:w-[155px] lg:h-[155px] top-[800px] right-0 border border-solid border-gray opacity-30 pointer-events-none" />
+        <div className="hidden sm:block absolute w-[60px] h-[60px] lg:w-[91px] lg:h-[91px] top-0 right-0 border border-solid border-gray opacity-30 pointer-events-none" />
 
-        {/* Dot grid patterns - Improved positioning */}
+        {/* Dot grid patterns - Responsive positioning */}
         {[
-          { top: "top-[283px]", left: "left-[31px]" },
-          { top: "top-[2033px]", left: "left-[26px]" },
-          { top: "top-[1622px]", right: "right-[26px]" },
+          { top: "top-[283px]", left: "left-[31px]", display: "hidden lg:inline-flex" },
+          { top: "top-[2033px]", left: "left-[26px]", display: "hidden lg:inline-flex" },
+          { top: "top-[1622px]", right: "right-[26px]", display: "hidden lg:inline-flex" },
         ].map((position, posIndex) => (
           <div
             key={`dot-grid-${posIndex}`}
-            className={`inline-flex flex-col items-start justify-between absolute ${position.top} ${position.left || position.right} w-[103px] h-[103px] opacity-50 pointer-events-none`}
+            className={`${position.display} flex-col items-start justify-between absolute ${position.top} ${position.left || position.right} w-[63px] h-[63px] lg:w-[103px] lg:h-[103px] opacity-50 pointer-events-none`}
           >
             {dotGridPattern.map((row, rowIndex) => (
               <div

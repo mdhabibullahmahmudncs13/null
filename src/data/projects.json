@@ -4,10 +4,10 @@
   "projects": [
     {
       "id": 1,
-      "title": "E-Commerce Platform",
-      "description": "Full-stack e-commerce solution with React and Node.js",
-      "image": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=400",
-      "technologies": ["React", "Node.js", "MongoDB", "Express", "Stripe"],
+      "title": "Aurora Innovative Learning Platform",
+      "description": "Full-stack learning platform build with Next.js and AppWrite",
+      "image": "/Aurora Innovative Learning Platform.png",
+      "technologies": ["Next.js", "React", "Tailwind CSS", "Appwrite","Crypto-js","API"],
       "liveUrl": "#",
       "codeUrl": "#",
       "actions": [
@@ -25,12 +25,12 @@
     },
     {
       "id": 2,
-      "title": "Task Management App",
-      "description": "Collaborative task management with real-time updates",
-      "image": "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400",
-      "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Socket.io", "Tailwind CSS"],
+      "title": "UniHub - All-in-One University Management System",
+      "description": "UniHub is a comprehensive university management system developed for the NEOFETCH Hackathon Inventious 4.1 that streamlines campus life by integrating academic management, communication, navigation, dining, transportation, and security features into a single, user-friendly application.",
+      "image": "/UniHub - All-in-One University Management System.png",
+      "technologies": ["Django", "SQLite3", "JavaScript","Tailwind CSS"],
       "liveUrl": "#",
-      "codeUrl": "#",
+      "codeUrl": "https://github.com/mdjobayerarafat/university_app?tab=readme-ov-file",
       "actions": [
         {
           "label": "Live <~>",
@@ -46,9 +46,9 @@
     },
     {
       "id": 3,
-      "title": "Weather Dashboard",
-      "description": "Real-time weather data visualization",
-      "image": "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "title": "A Education Exam System for A Event [Name: Dig The Data 3.0]",
+      "description": "This Django-based Event and Exam Management System enables teams to participate in educational or competitive quizzes with features for user authentication, team management, question answering with hints, and real-time score tracking.",
+      "image": "/dtd3.png",
       "technologies": ["React", "Chart.js", "Weather API", "CSS"],
       "liveUrl": "#",
       "codeUrl": "#",
