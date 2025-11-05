@@ -23,7 +23,7 @@
           "date": "2025",
           "description": "AI+ Prompt Engineer Certification Program",
           "credentialId": "b250d3317698",
-          "verificationUrl": "https://learn.aicerts.io/mod/customcert/view.php?id=41232&downloadissue=9890",
+          "verificationUrl": "/certificates/xd.png",
           "image": "/certificates/AI+ Prompt Engineer Level 1™-1.png",
           "skills": ["AI CERTs", "AI","AI Prompt Engineer", "Prompt Engineering","Prompt Design","AI Tools"]
         },
@@ -33,9 +33,9 @@
           "organization": "Scrimba",
           "date": "2025",
           "description": "Certification for MongoDB database development and administration",
-          "credentialId": "MDB-DEV-2023-003",
+          "credentialId": "#",
           "verificationUrl": "#",
-          "image": "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=400",
+          "image": "/certificates/xd.png",
           "skills": ["MongoDB", "NoSQL", "Database Design"]
         }
       ]
