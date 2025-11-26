@@ -32,11 +32,11 @@
           "title": "The AI Engineer Path",
           "organization": "Scrimba",
           "date": "2025",
-          "description": "Certification for MongoDB database development and administration",
-          "credentialId": "#",
-          "verificationUrl": "#",
+          "description": "Certification for  AI Engineer Path",
+          "credentialId": "",
+          "verificationUrl": "https://scrimba.com/@mdhabibullahmahmudncs13:certs;cert2JbLs3qgAyYipvJ3xHQgEGp2oeYLay9z2ksDUv",
           "image": "/certificates/xd.png",
-          "skills": ["MongoDB", "NoSQL", "Database Design"]
+          "skills": ["Python", "OpenAI API", "LangChain","Hugging Face Transformers"," PyTorch","NumPy","Pandas","LLMs","Embeddings","RAG"]
         }
       ]
     },
