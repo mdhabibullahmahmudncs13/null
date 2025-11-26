@@ -54,7 +54,7 @@
   ],
   "footer": {
     "description": "Software Engineer and Full-Stack Developer",
-    "copyright": "© Copyright 2024. Made by Md Habibullah Mahmud",
+    "copyright": "© Copyright 2025. Made by Md Habibullah Mahmud",
     "socialLinks": [
       {
         "name": "Github",
@@ -68,13 +68,8 @@
       },
       {
         "name": "HackerRank",
-        "url": "https://www.hackerrank.com/your-username",
+        "url": "https://www.hackerrank.com/profile/mdhabibullahmah1",
         "icon": "hacker"
-      },
-      {
-        "name": "Figma",
-        "url": "#",
-        "icon": "figma"
       }
     ]
   }

@@ -48,7 +48,7 @@
       "skills": [
         ["Git", "Docker"],
         ["AWS", "Vercel"],
-        ["Netlify", "Heroku"]
+        ["Netlify"]
        
       ]
     }

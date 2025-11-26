@@ -63,6 +63,15 @@
          
           "image": "neofecth.jpg",
           "skills": ["Web Development", "Hackathon", "Innovation"]
+        },
+                {
+          "id": 7,
+          "title": "National Finalists in Innovation World Cup Bangladesh 2026",
+          "organization": "Dreams Of Bangladesh",
+          "date": "2025",
+         
+          "image": "/certificates/dob.png",
+          "skills": ["IOT", "Technology", "Innovation"]
         }
       ]
     },
