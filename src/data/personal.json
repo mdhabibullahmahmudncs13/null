@@ -33,13 +33,18 @@
   "socialLinks": [
     {
       "name": "GitHub",
-      "url": "https://github.com/habibullah-dev",
+      "url": "https://github.com/mdhabibullahmahmudncs13",
       "icon": "github"
     },
     {
       "name": "LinkedIn",
-      "url": "https://www.linkedin.com/in/md-habibullah-mahmud-3820382a9",
+      "url": "https://www.linkedin.com/in/md-habibullah-mahmud-2423841a5/",
       "icon": "linkedin"
+    },
+    {
+      "name": "HackerRank",
+      "url": "https://www.hackerrank.com/your-username",
+      "icon": "hacker"
     },
     {
       "name": "Email",
@@ -53,13 +58,18 @@
     "socialLinks": [
       {
         "name": "Github",
-        "url": "https://github.com/habibullah-dev",
+        "url": "https://github.com/mdhabibullahmahmudncs13",
         "icon": "github"
       },
       {
         "name": "LinkedIn",
-        "url": "https://www.linkedin.com/in/md-habibullah-mahmud-3820382a9",
+        "url": "https://www.linkedin.com/in/md-habibullah-mahmud-2423841a5/",
         "icon": "linkedin"
+      },
+      {
+        "name": "HackerRank",
+        "url": "https://www.hackerrank.com/your-username",
+        "icon": "hacker"
       },
       {
         "name": "Figma",

@@ -1,6 +1,7 @@
 import { LinkedinIcon, GithubIcon, MailIcon } from "lucide-react";
 import React from "react";
 import { Separator } from "../../components/ui/separator";
+import { HackerRankIcon } from "../../components/ui/icons/HackerRankIcon";
 import { AboutMeSection } from "./sections/AboutMeSection";
 import { AchievementsSection } from "./sections/AchievementsSection";
 import { ContactSection } from "./sections/ContactSection";
@@ -26,6 +27,8 @@ export const Home = (): JSX.Element => {
         return <LinkedinIcon className="w-6 h-6 md:w-8 md:h-8 text-gray hover:text-app-primary transition-colors" />;
       case 'mail':
         return <MailIcon className="w-6 h-6 md:w-8 md:h-8 text-gray hover:text-app-primary transition-colors" />;
+      case 'hacker':
+        return <HackerRankIcon className="w-6 h-6 md:w-8 md:h-8 text-gray hover:text-app-primary transition-colors" />;
       default:
         return <GithubIcon className="w-6 h-6 md:w-8 md:h-8 text-gray hover:text-app-primary transition-colors" />;
     }

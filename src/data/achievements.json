@@ -61,26 +61,8 @@
           "organization": "MIST Innovation Club (MIC)",
           "date": "2025",
          
-          "image": "/certificates/neo.png",
+          "image": "neofecth.jpg",
           "skills": ["Web Development", "Hackathon", "Innovation"]
-        },
-        {
-          "id": 7,
-          "title": "Outstanding Performance",
-          "organization": "University Computer Science Department",
-          "date": "2023",
-          "description": "Recognized for exceptional academic performance and contribution to research projects",
-          "image": "https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=400",
-          "skills": ["Research", "Academic Excellence", "Leadership"]
-        },
-        {
-          "id": 8,
-          "title": "Open Source Contributor of the Year",
-          "organization": "GitHub Community",
-          "date": "2023",
-          "description": "Recognized for significant contributions to open source projects and community engagement",
-          "image": "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=400",
-          "skills": ["Open Source", "Community", "Collaboration"]
         }
       ]
     },
@@ -90,40 +72,13 @@
       "items": [
         {
           "id": 9,
-          "title": "Global Hackathon 2024",
-          "organization": "TechCrunch Disrupt",
-          "date": "2024",
-          "description": "Participated in 48-hour hackathon, developed a fintech solution for micro-lending",
-          "position": "2nd Place",
-          "image": "https://images.pexels.com/photos/1181316/pexels-photo-1181316.jpeg?auto=compress&cs=tinysrgb&w=400",
-          "skills": ["Hackathon", "Fintech", "Team Collaboration"]
-        },
-        {
-          "id": 10,
-          "title": "React Conference 2023",
-          "organization": "React Community",
-          "date": "2023",
-          "description": "Attended workshops and sessions on advanced React patterns and performance optimization",
-          "image": "https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=400",
-          "skills": ["React", "Frontend", "Performance"]
-        },
-        {
-          "id": 11,
-          "title": "AI/ML Workshop Series",
-          "organization": "Stanford Online",
-          "date": "2023",
-          "description": "Completed intensive workshop series on machine learning algorithms and neural networks",
-          "image": "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400",
-          "skills": ["Machine Learning", "Neural Networks", "Python"]
-        },
-        {
-          "id": 12,
-          "title": "DevOps Summit 2022",
-          "organization": "Cloud Native Computing Foundation",
-          "date": "2022",
-          "description": "Participated in sessions about containerization, CI/CD, and cloud-native technologies",
-          "image": "https://images.pexels.com/photos/1181772/pexels-photo-1181772.jpeg?auto=compress&cs=tinysrgb&w=400",
-          "skills": ["DevOps", "Docker", "CI/CD"]
+          "title": "2025 NASA Space Apps Challenge",
+          "organization": "NASA",
+          "date": "2025",
+          "description": "Participated in 48-hour hackathon, developed a solution",
+          
+          "image": "nasa.png",
+          "skills": ["Hackathon", "Team Collaboration"]
         }
       ]
     }
