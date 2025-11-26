@@ -39,10 +39,6 @@
     {
       "code": "EN",
       "active": true
-    },
-    {
-      "code": "RU",
-      "active": false
     }
   ]
 }
