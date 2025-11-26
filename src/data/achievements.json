@@ -37,6 +37,17 @@
           "verificationUrl": "https://scrimba.com/@mdhabibullahmahmudncs13:certs;cert2JbLs3qgAyYipvJ3xHQgEGp2oeYLay9z2ksDUv",
           "image": "/certificates/xd.png",
           "skills": ["Python", "OpenAI API", "LangChain","Hugging Face Transformers"," PyTorch","NumPy","Pandas","LLMs","Embeddings","RAG"]
+        },
+        {
+          "id": 4,
+          "title": "Software Engineer",
+          "organization": "HackerRank",
+          "date": "2025",
+          "description": "Certification for  AI Engineer Path",
+          "credentialId": "",
+          "verificationUrl": "https://www.hackerrank.com/certificates/e4918de85991",
+          "image": "/certificates/softeng.png",
+          "skills": ["Problem solving", "SQL", "REST API"]
         }
       ]
     },
