@@ -18,8 +18,11 @@ import type {
   ImagesData,
 } from '../types/appwrite';
 
-// Generic hook for Appwrite data fetching
-function useAppwriteData<T>(fetchFunction: () => Promise<T | null>): T | null {
+// Generic hook for Appwrite data fetching with JSON fallback
+function useAppwriteData<T>(
+  fetchFunction: () => Promise<T | null>,
+  fallbackPath?: string
+): T | null {
   const [data, setData] = useState<T | null>(null);
 
   useEffect(() => {
@@ -33,7 +36,18 @@ function useAppwriteData<T>(fetchFunction: () => Promise<T | null>): T | null {
         }
       } catch (err) {
         if (isMounted) {
-          console.error('Error loading data:', err);
+          console.error('Error loading from Appwrite:', err);
+          
+          // Fallback to JSON if Appwrite fails and fallback path is provided
+          if (fallbackPath) {
+            try {
+              console.log(`Loading fallback data from ${fallbackPath}.json`);
+              const module = await import(`../data/${fallbackPath}.json`);
+              setData(module.default);
+            } catch (fallbackErr) {
+              console.error(`Failed to load fallback data from ${fallbackPath}.json:`, fallbackErr);
+            }
+          }
         }
       }
     };
@@ -50,12 +64,12 @@ function useAppwriteData<T>(fetchFunction: () => Promise<T | null>): T | null {
 
 // Personal Info Hook
 export function usePersonalData() {
-  return useAppwriteData<PersonalInfo>(personalService.get);
+  return useAppwriteData<PersonalInfo>(personalService.get, 'personal');
 }
 
 // Projects Hooks
 export function useProjectsData() {
-  return useAppwriteData<ProjectsData>(projectsService.getAll);
+  return useAppwriteData<ProjectsData>(projectsService.getAll, 'projects');
 }
 
 export function useFeaturedProjects() {
@@ -70,17 +84,17 @@ export function useFeaturedProjects() {
 
 // Skills Hook
 export function useSkillsData() {
-  return useAppwriteData<SkillsData>(skillsService.get);
+  return useAppwriteData<SkillsData>(skillsService.get, 'skills');
 }
 
 // Achievements Hook
 export function useAchievementsData() {
-  return useAppwriteData<AchievementsData>(achievementsService.get);
+  return useAppwriteData<AchievementsData>(achievementsService.get, 'achievements');
 }
 
 // Quotes Hooks
 export function useQuotesData() {
-  return useAppwriteData<QuotesData>(quotesService.getAll);
+  return useAppwriteData<QuotesData>(quotesService.getAll, 'quotes');
 }
 
 export function useRandomQuote() {
@@ -95,12 +109,12 @@ export function useRandomQuote() {
 
 // Navigation Hook
 export function useNavigationData() {
-  return useAppwriteData<NavigationData>(navigationService.get);
+  return useAppwriteData<NavigationData>(navigationService.get, 'navigation');
 }
 
 // Images Hook
 export function useImagesData() {
-  return useAppwriteData<ImagesData>(imagesService.get);
+  return useAppwriteData<ImagesData>(imagesService.get, 'images');
 }
 
 // Legacy compatibility - keep the old useJsonData for gradual migration
